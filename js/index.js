@@ -199,6 +199,21 @@ function tester() {
   console.log(JSON.parse(text));
 }
 
+function fileTest() {
+  let file = "test.json";
+  xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://jaernes.no/flaggquiz/" + file, true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState = 4 && (xhr.status >= 200 && xhr.status < 400)) {
+      alert(xhr.responseText);
+    }
+    else {
+      alert("NO RESPONSE");
+    }
+  }
+}
+
 function getFile() {
   let file = "data.json";
   xhr = new XMLHttpRequest();
