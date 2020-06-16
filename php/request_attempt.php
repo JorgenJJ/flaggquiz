@@ -15,6 +15,6 @@
     $stmt->fetch();
     $stmt->close();
 
-    echo $ccorrect;
+    echo json_encode($ccorrect);
 
 ?>

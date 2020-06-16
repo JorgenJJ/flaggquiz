@@ -205,10 +205,10 @@ function fileTest() {
   xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState = 4 && this.status == 200) {
-      alert(this.responseText);
+      alert(JSON.parse(this.responseText));
     }
     else {
-      alert("NO RESPONSE");
+      alert(this.status);
     }
   }
   xhr.open("GET", "php/request_attempt.php?q=" + n, true);
