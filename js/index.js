@@ -211,7 +211,7 @@ function fileTest() {
       alert("NO RESPONSE");
     }
   }
-  xhr.open("GET", "../php/request_attempt.php?q=" + n, true);
+  xhr.open("GET", "../flagg/php/request_attempt.php?q=" + n, true);
   xhr.send();
 }
 
