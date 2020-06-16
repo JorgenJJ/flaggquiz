@@ -200,6 +200,7 @@ function tester() {
 }
 
 function fileTest() {
+  alert("TEST BUTTON CLICKED");
   let file = "test.json";
   xhr = new XMLHttpRequest();
   xhr.open("GET", "https://jaernes.no/flaggquiz/" + file, true);
