@@ -200,19 +200,19 @@ function tester() {
 }
 
 function fileTest() {
-  alert("TEST BUTTON CLICKED");
-  let file = "test.json";
+  let n = 1;
+  console.log("TEST BUTTON CLICKED");
   xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://jaernes.no/flaggquiz/" + file, true);
-  xhr.setRequestHeader("Content-type", "application/json");
   xhr.onreadystatechange = function() {
-    if (xhr.readyState = 4 && (xhr.status >= 200 && xhr.status < 400)) {
-      alert(xhr.responseText);
+    if (this.readyState = 4 && this.status == 200) {
+      alert(this.responseText);
     }
     else {
       alert("NO RESPONSE");
     }
   }
+  xhr.open("GET", "/php/request_attempt.php?q=" + n, true);
+  xhr.send();
 }
 
 function getFile() {
