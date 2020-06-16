@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flagg Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style/stylesheet.css"></link>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="controlPanel">
+          <h1>Flagg Quiz</h1>
+          <input type="radio" name="lang" value="English" checked id="radio_eng"> English
+          <input type="radio" name="lang" value="Norsk"> Norsk <br>
+          <div class="div_start" id="btn_start" onclick="startQuiz();">
+            Start quiz
+          </div>
+        </div>
+        <div class="timer">
+          <p id="p_clock"></p>
+        </div>
+        <div class="div_score">
+          <p id="p_score"></p>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="content" id="div_content">
+          <div class="flagContainer">
+            <img id="img_flag" src="">
+          </div>
+          <input type="text" id="input_countryName" placeholder="Skriv landet...">
+        </div>
+        <div class="results" id="div_results">
+
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/countryArray.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>

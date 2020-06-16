@@ -1,0 +1,12 @@
+{
+  "attempts": {
+    "started": 1,
+    "finished": 0
+  },
+  "completed": {
+    "fifty": 0,
+    "hundred": 0,
+    "hundredfifty": 0,
+    "all": 0
+  }
+}

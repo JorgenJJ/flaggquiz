@@ -1,0 +1,129 @@
+body {
+  width: 100%;
+  min-width: 500px;
+  font-family: arial;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  background-color: #ceeaed;
+}
+
+.container {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  z-index: -1;
+  background-color: #9bc2c7;
+  border-left: 1px solid #80a8ad;
+  border-right: 1px solid #80a8ad;
+  box-shadow: 0px 0px 10px #6fa0a6;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.controlPanel {
+  grid-column: 1/2;
+  padding-left: 30px;
+}
+
+.timer {
+  grid-column: 2/3;
+  display: flex;
+  justify-content: center;
+}
+
+#p_clock {
+  margin-top: 30px;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.div_score {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#p_score {
+  position: absolute;
+  margin: -20px;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: auto auto;
+  width: 200px;
+  border: 3px solid black;
+  padding: 5px;
+  padding-right: 9px;
+  background-color: grey;
+  position: absolute;
+}
+
+.flagContainer {
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+}
+
+#img_flag {
+  width: 100px;
+}
+
+#input_countryName {
+  grid-row: 2/3;
+  width: inherit;
+}
+
+.resultCountriesDiv {
+  background-color: #ededed;
+  border: 2px solid #363636;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: 80px auto;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.resultFlag {
+  grid-column: 1/2;
+  width: 70px;
+}
+
+.resultText {
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+}
+
+.div_start {
+  margin-top: 10px;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  border: 2px solid #3e4d4f;
+  background-color: #bdd8db;
+  border-radius: 5px;
+}
+
+.div_start:hover {
+  background-color: #7db4ba;
+  cursor: pointer;
+}
