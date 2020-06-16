@@ -7,14 +7,10 @@
 
     $sql = "SELECT * FROM `FORSOK` WHERE id=1";
 
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("s", $_GET['q']);
-    $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($cid, $ccorrect, $cwrong, $ctime, $cdifficulty);
-    $stmt->fetch();
-    $stmt->close();
+    $res = $mysqli->query($sql);
 
-    echo json_encode($ccorrect);
+    echo json_encode($res);
+
+    $mysqli->close();
 
 ?>
