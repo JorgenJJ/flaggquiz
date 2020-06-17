@@ -11,15 +11,18 @@
       <div class="header">
         <div class="controlPanel">
           <h1>Flagg Quiz</h1>
-          <input type="radio" name="lang" value="English" checked id="radio_eng"> English
-          <input type="radio" name="lang" value="Norsk"> Norsk <br>
+            <div class="controlLanguage">
+              <input type="radio" name="lang" value="English" checked id="radio_eng"> English
+              <input type="radio" name="lang" value="Norsk"> Norsk <br>
+            </div><br>
+            <div class="controlDifficulty">
+              <input type="radio" name="diff" value="0" id="radio_easy"> Lett <br>
+              <input type="radio" name="diff" value="1" id="radio_medium" checked> Middels <br>
+              <input type="radio" name="diff" value="2" id="radio_hard"> Vanskelig <br>
+            </div>
           <div class="div_start" id="btn_start" onclick="startQuiz();">
             Start quiz
           </div>
-          <button onclick="fileTest()">CLICK ME</button>
-          <form method="GET" action="php/request_attempt.php">
-            <input type="submit" value="form">
-          </form>
         </div>
         <div class="timer">
           <p id="p_clock"></p>
@@ -27,6 +30,8 @@
         <div class="div_score">
           <p id="p_score"></p>
         </div>
+      </div>
+      <div class="livesDiv" id="livesDiv">
       </div>
       <div class="footer">
         <div class="content" id="div_content">
@@ -36,7 +41,6 @@
           <input type="text" id="input_countryName" placeholder="Skriv landet...">
         </div>
         <div class="results" id="div_results">
-
         </div>
       </div>
     </div>

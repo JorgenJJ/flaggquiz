@@ -1,9 +1,13 @@
-const countdownTime = "15"  // Timer length in minutes
+let countdownTime = "15"  // Timer length in minutes
 let currentFlag = 0;
 let score = 0;
 let ended = false;
 let counter;
 let lang;
+let diff;
+let lives = 3;
+
+let dupes = [0, 0];
 
 let storedData = "";
 
@@ -22,6 +26,13 @@ function startQuiz() {
   if (lang) button.innerHTML = "Give up";
   else button.innerHTML = "Gi opp";
   button.setAttribute("onclick", "endGame()");
+
+  for (let i = 0; i < lives; i++) {
+    let life = document.createElement("div");
+    life.setAttribute("class", "lifeDiv");
+    life.setAttribute("id", "life" + i);
+    document.getElementById("livesDiv").appendChild(life);
+  }
 
   generateNumberArray();
   getFlag();
@@ -183,11 +194,71 @@ countryInput.addEventListener("keyup", function(event) {
         newFlag();
       }
       else {
-        feedback("wrong");
-        newFlag();
+        if (lives > 0) {
+          lives--;
+          console.log("IS HERE");
+          document.getElementById("life" + lives).setAttribute("style", "background-color: transparent");
+        }
+        else {
+          feedback("wrong");
+          newFlag();
+        }
       }
     }
   }
+});
+
+function handleDuplicates(country) {
+  if ((country == "ro" || "sg") && dupes[0] == 0) {
+    dupes[0] = 1;
+    return true;
+  }
+  else if ((country == "ro" || "sg") && dupes[0] == 1) {
+    if (country == "ro") {
+      return true;
+    }
+    else if (country == "sg") {
+      return true;
+    }
+    else return false;
+  }
+  else if ((country == "id" || "mc") && dupes[1] == 0) {
+    dupes[1] = 1;
+    return true;
+  }
+  else if ((country == "id" || "mc") && dupes[1] == 1) {
+    if (country == "id") {
+      return true;
+    }
+    else if (country == "mc") {
+      return true;
+    }
+    else return false;
+  }
+  else return false;
+}
+
+$(document).ready(function(){
+  $('input[type=radio]').click(function(){
+    if (document.getElementById("radio_easy").checked) diff = 0;
+    else if (document.getElementById("radio_hard").checked) diff = 2;
+    else diff = 1;
+
+    if (diff == 0) {
+      countdownTime = "20";
+      lives = 5;
+    }
+    else if (diff == 2) {
+      countdownTime = "12";
+      lives = 0;
+    }
+    else {
+      countdownTime = "15";
+      lives = 3;
+    }
+
+    document.getElementById("p_clock").innerHTML = countdownTime + ":00";
+  });
 });
 
 function tester() {
