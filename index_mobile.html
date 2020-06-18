@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flagg Quiz | Mobile</title>
+    <link rel="stylesheet" type="text/css" href="style/stylesheet_mobile.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="controlPanel">
+          <h1>Flagg Quiz Mobile Edition</h1>
+            <div class="controlLanguage">
+              <input type="radio" name="lang" value="English" checked id="radio_eng"> English
+              <input type="radio" name="lang" value="Norsk"> Norsk <br>
+            </div><br>
+            <div class="controlDifficulty">
+              <input type="radio" name="diff" value="0" id="radio_easy"> Lett <br>
+              <input type="radio" name="diff" value="1" id="radio_medium" checked> Middels <br>
+              <input type="radio" name="diff" value="2" id="radio_hard"> Vanskelig <br>
+            </div>
+          <div class="div_start" id="btn_start" onclick="startQuiz();">
+            Start quiz
+          </div>
+        </div>
+        <div class="timer">
+          <p id="p_clock"></p>
+        </div>
+        <div class="div_score">
+          <p id="p_score"></p>
+        </div>
+      </div>
+      <div class="livesDiv" id="livesDiv">
+      </div>
+      <div class="footer">
+        <div class="content" id="div_content">
+          <div class="flagContainer">
+            <img id="img_flag" src="">
+          </div>
+          <input type="text" id="input_countryName" placeholder="Skriv landet...">
+        </div>
+        <div class="results" id="div_results">
+        </div>
+      </div>
+    </div>
+    <div class="div_keyboard">
+      <div class="div_keyboardRow" id="row1">
+        <button class="keyboard_btn" onclick="keyboardClick(this)">Q</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">W</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">E</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">R</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">T</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">Y</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">U</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">I</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">O</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">P</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">Å</button>
+      </div>
+      <div class="div_keyboardRow" id="row2">
+        <button class="keyboard_btn" onclick="keyboardClick(this)">A</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">S</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">D</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">F</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">G</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">H</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">J</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">K</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">L</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">Ø</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">Æ</button>
+      </div>
+      <div class="div_keyboardRow" id="row3">
+        <button class="keyboard_btn" onclick="keyboardClick(this)">Z</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">X</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">C</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">V</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">B</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">N</button>
+        <button class="keyboard_btn" onclick="keyboardClick(this)">M</button>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/countryArray.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>
