@@ -67,29 +67,31 @@ body {
 }
 
 .content {
-  display: grid;
-  grid-template-rows: auto auto;
-  width: 200px;
-  border: 3px solid black;
-  padding: 5px;
-  padding-right: 9px;
-  background-color: grey;
-  position: absolute;
+  width: 60%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .flagContainer {
-    grid-row: 1/2;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: fit-content;
 }
 
 #img_flag {
-  width: 100px;
+  width: auto;
+  height: 30vh;
+  border: thin solid black;
 }
 
 #input_countryName {
-  grid-row: 2/3;
-  width: inherit;
+  width: 50%;
+  height: fit-content;
+  font-size: 200%;
 }
 
 .resultCountriesDiv {

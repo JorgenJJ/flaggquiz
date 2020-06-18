@@ -7,6 +7,7 @@ let lang;
 let diff;
 let lives = 3;
 let isOnMobile = false;
+let left = 197;
 
 let dupes = [0, 0];
 
@@ -67,7 +68,7 @@ function updateScore(amount) {
 }
 
 function feedback(status) {
-  let = box = document.getElementById("div_content");
+  let = box = document.getElementById("footer");
   if (status == "correct") {
     box.style.backgroundColor = "lightgreen";
     order[currentFlag][1] = 1;
@@ -213,7 +214,9 @@ function checkAnswer() {
     }
     if(found) {
       feedback("correct");
-      updateScore(1);
+      updateScore(1);      
+      left--;
+      if (left == 0) endGame();
       newFlag();
     }
     else {
@@ -224,6 +227,8 @@ function checkAnswer() {
       }
       else {
         feedback("wrong");
+        left--;
+        if (left == 0) endGame();
         newFlag();
       }
     }
