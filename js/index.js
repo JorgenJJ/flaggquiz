@@ -21,8 +21,11 @@ function setup() {
 
 function startQuiz() {
   document.getElementById("div_content").style.visibility = "visible";
-  lang = document.getElementById("radio_eng").checked;
 
+  document.getElementById("div_keyboard").style.visibility = "visible";
+  document.getElementById("footer").style.height = "40%";
+  document.getElementsByClassName("controlPanel")[0].style.visibility = "hidden";
+  document.getElementsByClassName("controlPanel")[0].style.height = "0%";
   let button = document.getElementById("btn_start");
   if (lang) button.innerHTML = "Give up";
   else button.innerHTML = "Gi opp";
@@ -42,7 +45,8 @@ function startQuiz() {
 }
 
 function getFlag() {
-  document.getElementById("img_flag").src = "https://www.countryflags.io/" + countriesV2[order[currentFlag][0]][0] + "/flat/64.png";
+  //document.getElementById("img_flag").src = "https://www.countryflags.io/" + countriesV2[order[currentFlag][0]][0] + "/flat/64.png";
+  document.getElementById("img_flag").src = "images/flags/" + countriesV2[order[currentFlag][0]][0] + ".svg";
   document.getElementById("input_countryName").value = "";
 }
 
@@ -174,40 +178,44 @@ let countryInput = document.getElementById("input_countryName");
 countryInput.addEventListener("keyup", function(event) {
   if(event.keyCode === 13) {
     event.preventDefault();
-    if (countryInput.value == "") {
+    checkAnswer();
+  }
+});
+
+function checkAnswer() {
+  if (countryInput.value == "") {
+    newFlag();
+  }
+  else {
+    let found = false;
+    let n = 0;
+    for (let i = 1; i < countriesV2[order[currentFlag][0]].length; i++) {
+      if(countryInput.value.toLowerCase() == countriesV2[order[currentFlag][0]][i]) {
+        n++;
+      }
+
+      if(n > 0) {
+        found = true;
+      }
+    }
+    if(found) {
+      feedback("correct");
+      updateScore(1);
       newFlag();
     }
     else {
-      let found = false;
-      let n = 0;
-      for (let i = 1; i < countriesV2[order[currentFlag][0]].length; i++) {
-        if(countryInput.value.toLowerCase() == countriesV2[order[currentFlag][0]][i]) {
-          n++;
-        }
-
-        if(n > 0) {
-          found = true;
-        }
-      }
-      if(found) {
-        feedback("correct");
-        updateScore(1);
-        newFlag();
+      if (lives > 0) {
+        lives--;
+        console.log("IS HERE");
+        document.getElementById("life" + lives).setAttribute("style", "background-color: transparent");
       }
       else {
-        if (lives > 0) {
-          lives--;
-          console.log("IS HERE");
-          document.getElementById("life" + lives).setAttribute("style", "background-color: transparent");
-        }
-        else {
-          feedback("wrong");
-          newFlag();
-        }
+        feedback("wrong");
+        newFlag();
       }
     }
   }
-});
+}
 
 function handleDuplicates(country) {
   if ((country == "ro" || "sg") && dupes[0] == 0) {
@@ -326,7 +334,46 @@ window.mobileCheck = function() {
 
 function keyboardClick(elem) {
   let inp = document.getElementById("input_countryName");
-  inp.value = inp.value + elem.innerHTML;
+  if (elem.innerHTML == "SPACE") inp.value = inp.value + " ";
+  else if (elem.innerHTML == "&lt;") inp.value = inp.value.slice(0, -1);
+  else if (elem.innerHTML == "OK") checkAnswer();
+  else inp.value = inp.value + elem.innerHTML;
+}
+
+function radioClick(elem) {
+  if (elem.id == "l") {
+    if (elem.innerHTML == "English") {
+      lang = true;
+    }
+    else if (elem.innerHTML == "Norsk") {
+      lang = false;
+    }
+  }
+  else if (elem.id == "d") {
+    if (elem.innerHTML == "Lett") {
+      diff = 0;
+    }
+    else if (elem.innerHTML == "Middels") {
+      diff = 1;
+    }
+    else if (elem.innerHTML == "Vanskelig") {
+      diff = 2;
+    }
+    if (diff == 0) {
+      countdownTime = "20";
+      lives = 5;
+    }
+    else if (diff == 2) {
+      countdownTime = "12";
+      lives = 0;
+    }
+    else {
+      countdownTime = "15";
+      lives = 3;
+    }
+
+    document.getElementById("p_clock").innerHTML = countdownTime + ":00";
+  }
 }
 
 setup();

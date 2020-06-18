@@ -12,9 +12,9 @@ body {
 .container {
   position: absolute;
   width: 100%;
-  height: 40%;
+  height: 100%;
   z-index: -1;
-  background-color: #ffffff;
+  background-color: white;
   border-left: 1px solid #ffffff;
   border-right: 1px solid #ffffff;
   box-shadow: 0px 0px 10px #eeeeee;
@@ -23,11 +23,86 @@ body {
 .header {
   display: grid;
   grid-template-columns: 30% 40% 30%;
+  height: 10%;
 }
 
 .controlPanel {
   grid-column: 1/2;
-  padding-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  height: 90%;
+}
+
+.control_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(226, 226, 226);
+  flex-direction: column;
+  height: 10%;
+}
+
+.controlLanguage {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.btnLanguage {
+  width: 50%;
+  height: 100%;
+}
+
+.controlDifficulty {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.btnDifficulty {
+  width: 33%;
+  height: 100%;
+}
+
+.customRadio {
+  background-color: white;
+  border: medium solid rgb(226, 226, 226);
+}
+
+.customRadio:hover {
+  background-color: lightgray;
+}
+
+.controlStart {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.div_start {
+  margin-top: 10px;
+  width: 95%;
+  height: 100%;
+  text-align: center;
+  border: 2px solid #3e4d4f;
+  background-color: rgb(226, 226, 226);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 800%;
+  font-weight: bold;
+}
+
+.div_start:hover {
+  background-color: #b6b6b6;
+  cursor: pointer;
 }
 
 .timer {
@@ -58,38 +133,57 @@ body {
 }
 
 .footer {
-  position: absolute;
   width: 100%;
-  height: 70%;
+  height: 0%;
   display: flex;
   justify-content: center;
-  overflow-y: auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.livesDiv {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.lifeDiv {
+  margin: 2px;
+  width: 30%;
+  height: 90%;
+  background-color: rgb(190, 10, 10);
+  border: black thin solid;
 }
 
 .content {
-  display: grid;
-  grid-template-rows: auto auto;
-  width: 200px;
-  border: 3px solid black;
-  padding: 5px;
-  padding-right: 9px;
-  background-color: grey;
-  position: absolute;
+  width: 100%;
+  height: 85%;
 }
 
 .flagContainer {
-    grid-row: 1/2;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.divFlag {
+  width: 60%;
+  display: flex;
+  justify-content: center;
 }
 
 #img_flag {
-  width: 100px;
+  max-width: 100%;
+  max-height: 25vh;
+  border: thin solid black;
 }
 
 #input_countryName {
   grid-row: 2/3;
-  width: inherit;
+  width: 60%;
+  font-size: 400%;
 }
 
 .resultCountriesDiv {
@@ -113,44 +207,15 @@ body {
   align-items: center;
 }
 
-.div_start {
-  margin-top: 10px;
-  width: 100px;
-  height: 20px;
-  text-align: center;
-  border: 2px solid #3e4d4f;
-  background-color: #bdd8db;
-  border-radius: 5px;
-}
-
-.div_start:hover {
-  background-color: #7db4ba;
-  cursor: pointer;
-}
-
-.livesDiv {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.lifeDiv {
-  margin: 2px;
-  width: 50px;
-  height: 50px;
-  background-color: rgb(190, 10, 10);
-  border: black thin solid;
-  border-radius: 100px;
-}
-
 .div_keyboard {
   position: absolute;
-  top: 40%;
-  height: 60%;
+  top: 50%;
+  height: 50%;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  visibility: hidden;
 }
 
 .div_keyboardRow {
@@ -164,4 +229,18 @@ body {
   background-color: white;
   border: thin grey solid;
   width: 8%;
+  font-size: 400%;
+}
+
+.btnWide {
+  width: 16%;
+}
+
+#btn_spacebar {
+  width: 41%;
+}
+
+#btn_ok {
+  width: 70%;
+  background-color: rgb(180, 255, 170);
 }
