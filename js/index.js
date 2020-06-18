@@ -22,10 +22,13 @@ function setup() {
 function startQuiz() {
   document.getElementById("div_content").style.visibility = "visible";
 
-  document.getElementById("div_keyboard").style.visibility = "visible";
-  document.getElementById("footer").style.height = "40%";
-  document.getElementsByClassName("controlPanel")[0].style.visibility = "hidden";
-  document.getElementsByClassName("controlPanel")[0].style.height = "0%";
+  if (document.getElementById("div_keyboard") != null) {
+    document.getElementById("div_keyboard").style.visibility = "visible";
+    document.getElementById("footer").style.height = "40%";
+    document.getElementsByClassName("controlPanel")[0].style.visibility = "hidden";
+    document.getElementsByClassName("controlPanel")[0].style.height = "0%";
+    document.getElementById("btn_giveup").style.visibility = "visible";
+  }
   let button = document.getElementById("btn_start");
   if (lang) button.innerHTML = "Give up";
   else button.innerHTML = "Gi opp";
@@ -90,18 +93,18 @@ function createBox(index, lang, res) {
 
   let img = document.createElement("img");
   img.setAttribute("class", "resultFlag");
-  img.setAttribute("src", "https://www.countryflags.io/" + countriesV2[order[index][0]][0] + "/flat/64.png");
+  img.setAttribute("src", "images/flags/" + countriesV2[order[index][0]][0] + ".svg");
 
   let textDiv = document.createElement("div");
   textDiv.setAttribute("class", "resultText");
 
   if (order[index].length == 3) {
-    name = document.createTextNode("Name: " + countriesV2[order[index][0]][lang]);
-    guess = document.createTextNode("Guess: " + order[index][2]);
+    name = document.createTextNode("Navn: " + countriesV2[order[index][0]][lang]);
+    guess = document.createTextNode("Gjett: " + order[index][2]);
   }
   else {
-    name = document.createTextNode("Name: " + countriesV2[order[index][0]][lang]);
-    guess = document.createTextNode("No guess");
+    name = document.createTextNode("Navn: " + countriesV2[order[index][0]][lang]);
+    guess = document.createTextNode("Ingen forsøk");
   }
 
   let br = document.createElement("br");
@@ -119,9 +122,19 @@ function endGame() {
   let button = document.getElementById("btn_start");
   button.style.visibility = "hidden";
 
+  if (document.getElementById("div_keyboard") != null) {
+    document.getElementById("div_keyboard").style.visibility = "hidden";
+    document.getElementById("livesDiv").style.visibility = "hidden";
+    document.getElementById("livesDiv").style.height = "0px";
+    document.getElementById("flagContainer").style.visibility = "hidden";
+    document.getElementById("flagContainer").style.height = "0px";
+  }
+  else {
+    document.getElementById("div_content").remove();
+  }
+
   clearTimeout(counter);
   // document.getElementById("div_content").style.visibility = "hidden";
-  document.getElementById("div_content").remove();
   let res = document.getElementById("div_results");
   let i = 0;
   while(i < countriesV2.length) {
