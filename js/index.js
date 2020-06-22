@@ -25,7 +25,9 @@ function startQuiz() {
 
   if (document.getElementById("div_keyboard") != null) {
     //document.getElementById("div_keyboard").style.visibility = "visible";
-    document.getElementById("footer").style.height = "40%";
+    document.getElementById("input_countryName").focus();
+    document.getElementById("footer").style.height = "40vw";
+    document.getElementById("footer").style.top = "20vw";
     document.getElementsByClassName("controlPanel")[0].style.visibility = "hidden";
     document.getElementsByClassName("controlPanel")[0].style.height = "0%";
     document.getElementById("btn_giveup").style.visibility = "visible";
