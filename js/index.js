@@ -70,7 +70,7 @@ function updateScore(amount) {
 }
 
 function feedback(status) {
-  let = box = document.getElementById("footer");
+  let box = document.getElementById("container");
   if (status == "correct") {
     box.style.backgroundColor = "lightgreen";
     order[currentFlag][1] = 1;
@@ -199,14 +199,20 @@ countryInput.addEventListener("keyup", function(event) {
 });
 
 function checkAnswer() {
+  let a = "";
   if (countryInput.value == "") {
     newFlag();
   }
   else {
+    if (countryInput.value.substr(-1) == " ") {
+      a = countryInput.value.slice(0, -1);
+    }
+    else a = countryInput.value;
+    a = a.toLocaleLowerCase();
     let found = false;
     let n = 0;
     for (let i = 1; i < countriesV2[order[currentFlag][0]].length; i++) {
-      if(countryInput.value.toLowerCase() == countriesV2[order[currentFlag][0]][i]) {
+      if(a == countriesV2[order[currentFlag][0]][i]) {
         n++;
       }
 
