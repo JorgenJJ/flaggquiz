@@ -439,12 +439,13 @@ function setRadioStyle(element, btnClass, clr) {
 
 function btnHint(elem) {
   elem.style.visibility = "hidden";
-  if (elem.id == "hintBtn") {
+  if (elem.id == "hintBtn") { // Open infobox
     document.getElementById("infoDiv").style.visibility = "visible";
 
   }
-  else if (elem.id == "infoDiv") {
+  else if (elem.id == "infoDiv") {  // Close infobox
     document.getElementById("hintBtn").style.visibility = "visible";
+    document.getElementById("input_countryName").focus();
   }
 }
 
