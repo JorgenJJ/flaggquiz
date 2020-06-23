@@ -74,14 +74,14 @@ function updateScore(amount) {
 function feedback(status) {
   let box = document.getElementById("container");
   if (status == "correct") {
-    box.style.backgroundColor = "lightgreen";
+    box.style.backgroundColor = "#47FF47";
     order[currentFlag][1] = 1;
     setTimeout(function() {
       box.style.backgroundColor = "";
     }, 500);
   }
   else if (status == "wrong") {
-    box.style.backgroundColor = "red";
+    box.style.backgroundColor = "#FF3333";
     order[currentFlag][1] = 2;
     order[currentFlag][2] = document.getElementById("input_countryName").value;
     setTimeout(function() {
@@ -133,6 +133,7 @@ function endGame() {
     document.getElementById("livesDiv").style.height = "0px";
     document.getElementById("flagContainer").style.visibility = "hidden";
     document.getElementById("flagContainer").style.height = "0px";
+    document.getElementById("footer").style.height = "80%";
   }
   else {
     document.getElementById("div_content").remove();
