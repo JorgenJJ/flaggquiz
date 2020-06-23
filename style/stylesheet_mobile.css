@@ -1,3 +1,12 @@
+/*
+PALETTE (from brightest to darkest:
+#94E8B4
+#72BDA3
+#5E8C61
+#4E6151
+#3B322C
+*/
+
 body {
   width: 100%;
   min-width: 500px;
@@ -14,11 +23,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: white;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #ffffff;
-  box-shadow: 0px 0px 10px #eeeeee;
-  overflow-y: auto;
+  background-color: #94E8B4;
 }
 
 .header {
@@ -80,7 +85,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(226, 226, 226);
+  background-color: #5E8C61;
   flex-direction: column;
   height: 10%;
 }
@@ -110,8 +115,8 @@ body {
 }
 
 .customRadio {
-  background-color: white;
-  border: medium solid rgb(226, 226, 226);
+  background-color: #94E8B4;
+  border: medium solid #72BDA3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,7 +124,7 @@ body {
 }
 
 .customRadio:hover {
-  background-color: lightgray;
+  background-color: #72BDA3;
 }
 
 .controlStart {
@@ -131,12 +136,13 @@ body {
 
 .div_start {
   margin-top: 10px;
-  width: 95%;
+  width: 100%;
   height: 100%;
+  margin-left: 2px;
+  margin-right: 2px;
   text-align: center;
-  border: 2px solid #3e4d4f;
-  background-color: rgb(226, 226, 226);
-  border-radius: 5px;
+  border: 2px solid #3B322C;
+  background-color: #5E8C61;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +151,7 @@ body {
 }
 
 .div_start:hover {
-  background-color: #b6b6b6;
+  background-color: #3B322C;
   cursor: pointer;
 }
 
@@ -196,6 +202,7 @@ body {
   max-width: 100%;
   max-height: 25vh;
   border: thin solid black;
+  background-color: #5E8C61;
 }
 
 #input_countryName {
@@ -212,7 +219,7 @@ body {
 }
 
 .resultCountriesDiv {
-  background-color: rgb(226, 226, 226);
+  background-color: #5E8C61;
   border-radius: 3px;
   display: grid;
   grid-template-columns: 80px auto;

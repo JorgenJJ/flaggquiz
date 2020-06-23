@@ -18,6 +18,8 @@ let order = [];
 function setup() {
   document.getElementById("div_content").style.visibility = "hidden";
   document.getElementById("p_clock").innerHTML = countdownTime + ":00";
+  radioClick(document.getElementsByClassName("btnLanguage")[1]);
+  radioClick(document.getElementsByClassName("btnDifficulty")[1]);
 }
 
 function startQuiz() {
@@ -377,20 +379,25 @@ function radioClick(elem) {
   if (elem.id == "l") {
     if (elem.innerHTML == "English") {
       lang = true;
+      setRadioStyle(elem, "btnLanguage", "#5E8C61");
     }
     else if (elem.innerHTML == "Norsk") {
       lang = false;
+      setRadioStyle(elem, "btnLanguage", "#5E8C61");
     }
   }
   else if (elem.id == "d") {
     if (elem.innerHTML == "Lett") {
       diff = 0;
+      setRadioStyle(elem, "btnDifficulty", "#5E8C61");
     }
     else if (elem.innerHTML == "Middels") {
       diff = 1;
+      setRadioStyle(elem, "btnDifficulty", "#5E8C61");
     }
     else if (elem.innerHTML == "Vanskelig") {
       diff = 2;
+      setRadioStyle(elem, "btnDifficulty", "#5E8C61");
     }
     if (diff == 0) {
       countdownTime = "20";
@@ -407,6 +414,14 @@ function radioClick(elem) {
 
     document.getElementById("p_clock").innerHTML = countdownTime + ":00";
   }
+}
+
+function setRadioStyle(element, btnClass, clr) {
+  let btns = document.getElementsByClassName(btnClass);
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].style.backgroundColor = "";
+  }
+  element.style.backgroundColor = clr;
 }
 
 setup();
