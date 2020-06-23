@@ -233,10 +233,10 @@ body {
 }
 
 .infoDiv {
-  top: 30%;
   position: absolute;
   visibility: hidden;
-  width: 60%;
+  width: 90%;
+  font-size: 300%;
   padding: 4px;
   background-color: #5E8C61;
   border: medium solid #4E6151;
