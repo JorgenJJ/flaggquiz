@@ -33,6 +33,18 @@ function startQuiz() {
     document.getElementsByClassName("controlPanel")[0].style.visibility = "hidden";
     document.getElementsByClassName("controlPanel")[0].style.height = "0%";
     document.getElementById("btn_giveup").style.visibility = "visible";
+    if (lang == 1) {
+      document.getElementById("infoTitle").innerHTML = "About";
+      document.getElementById("infoClose").innerHTML = "Click to close";
+      document.getElementById("infoLives").innerHTML = "You have " + lives + " lives. Once they are spent you may continue guessing, but you only have one attempt for each flag";
+      document.getElementById("infoSkip").innerHTML = "You can press the submit button to skip a flag without guessing, and try again later without penalty";
+    }
+    else if (lang == 0) {
+      document.getElementById("infoTitle").innerHTML = "Om";
+      document.getElementById("infoClose").innerHTML = "Trykk for å lukke";
+      document.getElementById("infoLives").innerHTML = "Du har " + lives + " liv. Når de er brukt kan du fortsette å gjette, men du har kun ett forsøk per flagg";
+      document.getElementById("infoSkip").innerHTML = "Du kan trykke Enter knappen for å midlertidig hoppe over et flagg, slik at du kan prøve igjen senere uten konsekvenser";
+    }
   }
   let button = document.getElementById("btn_start");
   if (lang) button.innerHTML = "Give up";
@@ -423,6 +435,17 @@ function setRadioStyle(element, btnClass, clr) {
     btns[i].style.backgroundColor = "";
   }
   element.style.backgroundColor = clr;
+}
+
+function btnHint(elem) {
+  elem.style.visibility = "hidden";
+  if (elem.id == "hintBtn") {
+    document.getElementById("infoDiv").style.visibility = "visible";
+
+  }
+  else if (elem.id == "infoDiv") {
+    document.getElementById("hintBtn").style.visibility = "visible";
+  }
 }
 
 setup();

@@ -20,6 +20,14 @@
         </div>
       </div>
       <div class="footer" id="footer">
+        <div class="infoDiv" id="infoDiv" onclick="btnHint(this)">
+          <h3 id="infoTitle">Om</h3>
+          <div id="infoContent">
+            <p class="infoText" id="infoLives">Du har 3 liv. Når de er brukt kan du fortsette å gjette, men du har kun ett forsøk per flagg</p>
+            <p class="infoText" id="infoSkip">Du kan trykke Enter knappen for å midlertidig hoppe over et flagg, slik at du kan prøve igjen senere uten konsekvenser</p>
+          </div>
+          <h3 id="infoClose">Trykk for å lukke</h3>
+        </div>
         <div class="livesDiv" id="livesDiv">
         </div>
         <div class="content" id="div_content">
@@ -28,6 +36,11 @@
               <img id="img_flag" src="">
             </div>
             <input type="text" id="input_countryName" placeholder="Skriv landet...">
+          </div>
+          <div class="hintDiv">
+            <div class="hintBtn" id="hintBtn" onclick="btnHint(this)">
+              <h3 id="hintTitle">?</h3>
+            </div>
           </div>
           <div class="results" id="div_results">
           </div>     
