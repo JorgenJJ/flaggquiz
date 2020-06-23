@@ -212,7 +212,14 @@ function checkAnswer() {
     let found = false;
     let n = 0;
     for (let i = 1; i < countriesV2[order[currentFlag][0]].length; i++) {
-      if(a == countriesV2[order[currentFlag][0]][i]) {
+      let cur = countriesV2[order[currentFlag][0]][i];
+      if(a == cur) {
+        n++;
+      }
+      else if ((a == "monaco" || a == "indonesia") && (cur == "monaco" || cur == "indonesia")) {
+        n++;
+      }
+      else if ((a == "romania" || a == "chad") && (cur == "romania" || cur == "chad")) {
         n++;
       }
 
